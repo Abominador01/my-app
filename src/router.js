@@ -1,33 +1,56 @@
-import {BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import Layout from "./components/Layout";
+import Courses from "./pages/Courses";
+// import Departament from "./pages/Departament";
+// import Professor from "./pages/Professor";
+// import Allocation from "./pages/Allocation";
 
 const routes = [
-    {
-    path:"/",
+  {
+    path: "/",
     name: "Home",
     visible: false,
-    Component: Home,
-
-    },
+    component: Home,
+  },
+  {
+    path:"/courses",
+    name:"Courses",
+    component: Courses,
+  },
+//   {
+//     path:"/professor",
+//     name:"Professor",
+//     component: Professor,
+//   },
+//   {
+//     path:"/departament",
+//     name:"Departament",
+//     component: Departament,
+//   },
+//   {
+//     path:"/allocations",
+//     name:"Allocations",
+//     component: Allocation,
+//   },
 ];
-//esse modo de escrever função se chama arrow functions 
-const Router =() => (
-<BrowserRouter>
-<Layout routes={routes}>
-    <Switch>
-        {routes.map((route, index) =>(
-            <Route
+//esse modo de escrever função se chama arrow functions
+const Router = () => (
+  <BrowserRouter>
+    <Layout routes={routes}>
+      <Switch>
+        {routes.map((route, index) => (
+          <Route
             component={route.component}
             exact
             key={index}
             path={route.path}
-            />
+          />
         ))}
-    </Switch>
-</Layout>
-</BrowserRouter>
-); 
+      </Switch>
+    </Layout>
+  </BrowserRouter>
+);
 
 export default Router;
