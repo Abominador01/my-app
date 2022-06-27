@@ -4,7 +4,7 @@ import Router from "./router";
 import { ToastContainer } from "react-toastify";
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/react-toastify.css";
+import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css"
 
 
 ReactDOM.render(
