@@ -41,7 +41,7 @@ const Courses = () => {
     }
   }
 
-    const handleClose = () =>{setVisible(false)}
+    const handleClose = () =>setVisible(false);
 
   const actions = [
     {
