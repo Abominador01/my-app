@@ -94,7 +94,11 @@ const Departments = () => {
                 <Form.Control
                   name="department"
                   onChange={(event) =>
+<<<<<<< HEAD
                     setDepartment({ ...department, name: event.target.value })
+=======
+                    setDept({ ...department, name: event.target.value })
+>>>>>>> master
                   }
                   value={department.name}
                 />
