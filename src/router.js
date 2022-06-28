@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import Courses from "./pages/Courses";
-import Departament from "./pages/Department";
+import Department from "./pages/Department";
 // import Professor from "./pages/Professor";
 // import Allocation from "./pages/Allocation";
 
