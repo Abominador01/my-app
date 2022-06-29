@@ -17,7 +17,7 @@ const columns = [
     { 
         value: "Department", 
         id: "departmentId", 
-        render: (department) => department.name,
+        // render: (department) => department.name,
     },
   ];
 
@@ -53,7 +53,7 @@ const columns = [
         try {
           await api.delete(`${endpoint}/${professor.id}`);
           await refetch();
-          toast.info(`Professor ${professor.name} removido!`);
+          toast.info(`Professor(a) ${professor.name} removido(a)!`);
         } catch (error) {
           toast.info(error.message);
         }
@@ -73,15 +73,13 @@ const columns = [
 
         try {
           if (professor.id) {
-            await api.put(`${endpoint}/${professor.id}`, {
-              name: professor.name,
-            });
+            await api.put(`${endpoint}/${professor.id}`, data);
     
             toast.success("Atualizado com sucesso!");
           } else {
-            await api.post(endpoint, { name: professor.name });
+            await api.post(endpoint, data);
     
-            toast.success("Departamento foi cadastrado com sucesso!");
+            toast.success("Professor(a) foi cadastrado com sucesso!");
           }
     
           setVisible(false);
@@ -91,9 +89,7 @@ const columns = [
           toast.error(error.message);
         }
       };
-
       const handleClose = () => setVisible(false);
-
       
       const onChange = ({target: { name, value }}) => {
         setProfessor({
@@ -104,18 +100,18 @@ const columns = [
 
 
       return (
-        <Page title="Professor">
+        <Page title="Professors">
           <Button
             className="mb-2"
             onClick={() => {
-              setDepartment(INITIAL_STATE);
+              setProfessor(INITIAL_STATE);
               setVisible(true);
             }}
           >
             Create Professor
           </Button>
     
-          <ListView actions={actions} columns={columns} endpoint={endpoint}>
+          <ListView columns={columns} actions={actions}  endpoint={endpoint}>
             {({ refetch }) => (
               <Modal
                 title={`${professor.id ? "Update" : "Create"} Professor`}
