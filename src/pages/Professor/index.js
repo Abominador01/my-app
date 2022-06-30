@@ -16,8 +16,8 @@ const columns = [
     { value: "CPF", id: "cpf" },
     { 
         value: "Department", 
-        id: "departmentId", 
-        // render: (department) => department.name,
+        id: "department", 
+        render: (department) => department.name,
     },
   ];
 
@@ -42,7 +42,7 @@ const columns = [
         {
         name: "Edit",
       action: ({id, name, cpf, department:{ id: departmentId } }) => {
-        setProfessor({id, name, cpf, department:{ id: departmentId } });
+        setProfessor({id, name, cpf, departmentId });
         setVisible(true);
         },
     },
@@ -89,7 +89,7 @@ const columns = [
           toast.error(error.message);
         }
       };
-      const handleClose = () => setVisible(false);
+      
       
       const onChange = ({target: { name, value }}) => {
         setProfessor({
@@ -117,7 +117,7 @@ const columns = [
                 title={`${professor.id ? "Update" : "Create"} Professor`}
                 show={visible}
                 handleSave={() => handleSave(refetch)}
-                handleClose={() => handleClose(false)}
+                handleClose={() => setVisible(false)}
               >
                 <Form>
                   <Form.Group>
