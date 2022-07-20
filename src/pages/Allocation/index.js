@@ -103,7 +103,7 @@ const Allocation = () => {
         endHour,
         startHour,
         professor: { id: professorId },
-        department: { id: departmentId },
+        //department: { id: departmentId },
         course: { id: courseId },
       }) => {
         setAllocation({
@@ -112,7 +112,7 @@ const Allocation = () => {
           endHour,
           startHour,
           professorId,
-          departmentId,
+          //departmentId,
           courseId,
         });
         setVisible(true);
@@ -136,6 +136,15 @@ const Allocation = () => {
   ];
 
   const handleSave = async (refetch) => {
+    const data = {
+                  
+      courseId: Number(allocation.courseId),
+      dayOfWeek: allocation.dayOfWeek,
+      endHour: allocation.endHour + "+0000",
+      professorId: Number(allocation.professorId),
+      startHour: allocation.startHour + "+0000",
+     
+    };
     try {
       if (allocation.id) {
         await api.put(`${endpoint}/${allocation.id}`, data);
